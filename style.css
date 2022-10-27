@@ -1,0 +1,117 @@
+/* PALETA DE COLORES
+Gris Oscuro -> #343434
+Rosa Fuerte -> #EC0B43
+Blanco -> #FFFFFF
+Celeste -> #454ADE
+Gris Claro -> #7D938A */
+
+body {
+    background-color: #343434;
+}
+
+
+@font-face {
+    font-family: 'Keyboard';
+    src: url('./res/keyboard.woff2');
+
+}
+
+#fondoTeclado {
+    margin-top: 12%;
+    display: flex;
+    justify-content: center;
+}
+
+#playButton {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    font-size: 110%;
+    display: block;
+    margin: auto;
+    margin-top: 3%;
+    background-color: #454ADE;
+    color: #ffffff;
+    border-style: hidden;
+    padding: 1%;
+    width: 15%;
+    border-radius: 10px;
+    transition: all 300ms ease;
+}
+
+#playButton:hover {
+    transform: scale(1.05);
+    background-color: #EC0B43;
+    color: #ffffff;
+    box-shadow: 0px 0px 20px #EC0B43FF;
+}
+
+#playButton:active {
+    transform: rotate(-5deg);
+}
+
+#inputTexto {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 400;
+    font-size: 110%;
+    display: block;
+    margin: auto;
+    text-align: center;
+    background-color: #7D938A;
+    color: #FFFFFF;
+    border-style: hidden;
+    border-radius: 10px;
+    padding: 1%;
+    width: 40%;
+    margin-top: 5%;
+    transition: width 2000ms, padding 2000ms ease-out;
+
+
+}
+
+#inputTexto::placeholder {
+    color: #ffffff;
+    opacity: 50%;
+}
+
+#inputTexto:focus {
+    width: 50%;
+    padding: 2%;
+
+}
+
+.logo {
+    display: inline-block;
+    background-color: #FFFFFF;
+    font-family: Keyboard;
+    font-size: 600%;
+    color: #343434;
+    border-radius: 10%;
+    transition: transform 200ms ease-out;
+    user-select: none;
+    animation: movimientoInicial 1s ease;
+    animation-delay: calc(.05s * var(--i));
+}
+
+
+
+.logo:hover {
+    transform: translateY(-50%);
+}
+
+.logo:active {
+    transform: scale(0.7);
+}
+
+@keyframes movimientoInicial {
+
+    0%,
+    40%,
+    100% {
+        transform: translateY(0)
+    }
+
+    20% {
+        transform: translateY(-50%)
+    }
+
+}
