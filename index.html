@@ -3,25 +3,31 @@
 <html>
 
 <head>
+    <title>Speed Typing</title>
+    <link rel="icon" href="./res/icon.png">
     <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
 </head>
 
 <body>
     <div id="tituloSpeedTyping" class="letra">
         <div id="fondoTeclado" class="fondoTeclado">
-            <div class="logo" style="--i:1"><label>S</label></div>
-            <div class="logo" style="--i:2"><label>P</label></div>
-            <div class="logo" style="--i:3"><label>E</label></div>
-            <div class="logo" style="--i:4"><label>E</label></div>
-            <div class="logo" style="--i:5"><label>D</label></div>
-            <div class="logo" style="--i:6"><label>T</label></div>
-            <div class="logo" style="--i:7"><label>Y</label></div>
-            <div class="logo" style="--i:8"><label>P</label></div>
-            <div class="logo" style="--i:9"><label>I</label></div>
-            <div class="logo" style="--i:10"><label>N</label></div>
-            <div class="logo" style="--i:11"><label>G</label></div>
+            <div class="logo" style="--i:1"><label class="keyBoard">S</label></div>
+            <div class="logo" style="--i:2"><label class="keyBoard">P</label></div>
+            <div class="logo" style="--i:3"><label class="keyBoard">E</label></div>
+            <div class="logo" style="--i:4"><label class="keyBoard">E</label></div>
+            <div class="logo" style="--i:5"><label class="keyBoard">D</label></div>
+            <div style="width: 2%;"></div>
+            <div class="logo" style="--i:6"><label class="keyBoard">T</label></div>
+            <div class="logo" style="--i:7"><label class="keyBoard">Y</label></div>
+            <div class="logo" style="--i:8"><label class="keyBoard">P</label></div>
+            <div class="logo" style="--i:9"><label class="keyBoard">I</label></div>
+            <div class="logo" style="--i:10"><label class="keyBoard">N</label></div>
+            <div class="logo" style="--i:11"><label class="keyBoard">G</label></div>
         </div>
-        <input id="inputTexto" type="text" placeholder="Pon a prueba tu destreza con el teclado!">
+        <p id="fraseJuego"></p> 
+        <p id="message"></p> 
+        <input id="inputTexto" class="classTexto" disabled="true" type="text" placeholder="Pon a prueba tu destreza con el teclado!">
         <button id="playButton">Iniciar</button>
     </div>
 </body>
