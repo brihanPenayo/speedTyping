@@ -1,4 +1,6 @@
-/* PALETA DE COLORES
+/********************************
+        PALETA DE COLORES
+*********************************
 Gris Oscuro -> #343434
 Rosa Fuerte -> #EC0B43
 Blanco -> #FFFFFF
@@ -152,14 +154,11 @@ body {
 
 
 .highlight {
-    background-color: #454ADEAA;
+    /* background-color: #454ADEAA; */
     border-radius: 10px;
     padding: 4px;
     padding-left: 2%;
-    box-shadow: 0px 0px 20px #454ADEFF;
-    /* animation: fraseAnimar 600ms ease-out; */
-    /* animation: fadeIn 4s ease-in;
-    animation-delay: 1s; */
+    text-shadow: -0px -0px 10px #EC0B43FF, 0px 0px 10px #EC0B43FF;
 }
 
 .error {
@@ -172,12 +171,14 @@ body {
 
 }
 
-/* @keyframes fadeIn {
-    from {
-        transform: scale(0)
-    }
-
-    to {
-        transform: scale(1)
-    }
-} */
+.cronoM {
+    display: block;
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 32px;
+    color: #FFFFFFFF;
+    text-shadow: 0px 0px 10px #454ADEFF, 0px 0px 10px #454ADEFF;
+}

@@ -37,7 +37,7 @@ document.getElementById('playButton').addEventListener('click', () => {
     // Resaltamos la primer palabra
     FRASE_JUEGO.childNodes[0].className = 'highlight';
     // Borramos los mensajes previos
-    TIEMPO_TRANSCURRIDO.innerText = '';
+    // TIEMPO_TRANSCURRIDO.innerText = '';
 
     // Definimos el elemento textbox
     // Vaciamos el elemento textbox
@@ -50,20 +50,25 @@ document.getElementById('playButton').addEventListener('click', () => {
     startTime = new Date().getTime();
 });
 
+let tiempoC;
 // al final de nuestro archivo script.js
-
 document.getElementById('playButton').addEventListener('click', () => {
+    // clearTiempo(tiempoC);
     animarTexto();
     iniciarCronometro();
+
+
     INPUT_TEXTO.addEventListener('input', () => {
         // tomamos la palabra actual
+
         const currentWord = palabras[palabraIndice];
         // tomamos el valor actual
         const typedValue = INPUT_TEXTO.value;
         if (typedValue === currentWord && palabraIndice === palabras.length - 1) {
             // fin de la sentencia
             // Definimos el mensaje de éxito
-           reestablecerTodo();
+            reestablecerTodo();
+            detenerCronometro();
         } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
             // fin de la palabra
             // vaciamos el valor typedValueElement para la siguiente palabra
@@ -87,13 +92,20 @@ document.getElementById('playButton').addEventListener('click', () => {
     });
 });
 
-function reestablecerTodo(){
-    // TIEMPO_TRANSCURRIDO.innerText = message;
+// ************************************************
+//          FUNCION PARA REESTABLECER
+// ************************************************
+// Aqui volvemos a setear todo como era al principio de la pagina
+function reestablecerTodo() {
     INPUT_TEXTO.disabled = true;
     INPUT_TEXTO.value = '';
     INPUT_TEXTO.setAttribute('placeholder', 'Pon a prueba tu destreza con el teclado!');
+    detenerCronometro();
 }
 
+// ************************************************
+//              ANIMACIONES DEL TEXTO
+// ************************************************
 //Funcion que anima el texto y modifica ciertos parametros del CSS
 function animarTexto() {
     document.getElementById('playButton').innerHTML = 'Siguiente';
@@ -101,44 +113,44 @@ function animarTexto() {
     FRASE_JUEGO.style.animation = '';
     INPUT_TEXTO.disabled = false;
     INPUT_TEXTO.focus();
-    FRASE_JUEGO.style.animation = 'fraseAnimar 600ms ease-out';
+    FRASE_JUEGO.style.animation = 'fraseAnimar 600ms ease';
     FRASE_JUEGO.style.fontSize = '25px';
 };
 
-//Funcion que escribe los segundos transcurridos una vez ejecutado el juego
+// ************************************************
+//                C R O N O M E T R O              
+// ************************************************ 
+// Creamos la variable cronometro
+let cronometro;
+
+// Funcion detenerCronometro, que limpia el valor del setInterval
+function detenerCronometro() {
+    clearInterval(cronometro);
+}
+
+// Funcion IniciarCronometro, declaramos variables auxiliares para Milisegundos, segundos y minutos
+// y lo vamos sumando mediante la funcion setInterval
 function iniciarCronometro() {
-    let minTranscurrido, segTranscurrido, mlsegTranscurrido;
-    milisegundos++;
-
-    if (milisegundos > 99) {
-        segundos++;
-        milisegundos = 0;
-    }
-    if (segundos > 59) {
-        minutos++;
-        segundos = 0;
-    }
-
-    mlsegTranscurrido = milisegundos;
-    segTranscurrido = segundos;
-    minTranscurrido = minutos;
-
-    document.getElementById('tiempoTranscurrido').innerHTML = `${minTranscurrido}:${segTranscurrido}`;
-    document.getElementById('miliSegundos').innerHTML = `.${mlsegTranscurrido}`;
+    detenerCronometro();
+    miliseg = 0;
+    seg = 0;
+    min = 0;
+    ms = document.getElementById('milisegundos');
+    s = document.getElementById("segundos");
+    m = document.getElementById("minutos");
+    cronometro = setInterval(
+        function () {
+            if (miliseg > 99) {
+                seg++;
+                miliseg = 0;
+            }
+            if (seg == 60) {
+                min++;
+                seg = 0;
+            }
+            miliseg++;
+            m.innerHTML = `${min}` + ':';
+            s.innerHTML = `${seg}` + ':';
+            ms.innerHTML = `${miliseg}`;
+        }, 10);
 }
-
-//Funcion que se ejecuta una vez que iniciamos el cronometro
-function empezarContador() {
-    iniciarCronometro();
-    tiempoInicial = setInterval(iniciarCronometro, 10);
-    CRON_CLICK.removeEventListener("click", empezarContador);
-}
-
-//Variables para cronometro
-let h = 0;
-let minutos = 0;
-let segundos = 0;
-let milisegundos = 0;
-let tiempoInicial = 0;
-const CRON_CLICK = document.getElementById("playButton");
-CRON_CLICK.addEventListener("click", empezarContador);
