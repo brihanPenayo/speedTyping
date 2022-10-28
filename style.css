@@ -9,6 +9,9 @@ Gris Claro -> #8b9c9e */
 
 body {
     background-color: #343434;
+    /* background-image: url(https://wallpapers.com/images/featured/wuuaobghtdllhliu.jpg); */
+    /* background-size: cover; */
+    
 }
 
 
@@ -52,6 +55,7 @@ body {
 }
 
 #inputTexto {
+    position: relative;
     user-select: none;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 400;
@@ -79,7 +83,7 @@ body {
     font-size: 90%;
 }
 
-#inputTexto:focus {
+#inputTexto:enabled{
     width: 50%;
     padding: 2%;
     font-size: 25px;
@@ -99,6 +103,7 @@ body {
     animation-delay: calc(.05s * var(--i));
     height: 66px;
     width: 65px;
+    box-shadow: 0px 0px 15px #00000080;
 
 }
 
@@ -115,13 +120,13 @@ body {
 }
 
 
-@keyframes fraseAnimar {
+@keyframes animarEscalas {
     from {
-        font-size: 0px;
+        scale: 0%;
     }
 
     to {
-        font-size: 25px;
+        scale: 100%;
     }
 }
 
@@ -156,9 +161,8 @@ body {
 .highlight {
     /* background-color: #454ADEAA; */
     border-radius: 10px;
-    padding: 4px;
-    padding-left: 2%;
-    text-shadow: -0px -0px 10px #EC0B43FF, 0px 0px 10px #EC0B43FF;
+    text-shadow: -0px -0px 10px #454ADEFF, 0px 0px 10px #454ADEFF;
+    font-size: 27px;
 }
 
 .error {
@@ -181,4 +185,25 @@ body {
     font-size: 32px;
     color: #FFFFFFFF;
     text-shadow: 0px 0px 10px #454ADEFF, 0px 0px 10px #454ADEFF;
+}
+
+#reintentar {
+    display: none;
+    min-width: 20px;
+    min-height: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    margin-top: 3%;
+    margin-left: 72%;
+    animation: animarEscalas 1s ease;
+}
+
+
+#seccionBoton{
+    align-items: center;
+    display: flex;
+    position: relative;
+    margin: auto;
 }

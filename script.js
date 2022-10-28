@@ -13,7 +13,6 @@ const textos = [
 let palabras = [];
 let palabraIndice = 0;
 // la hora de inicio
-let startTime = Date.now();
 // elementos de la pagina
 const FRASE_JUEGO = document.getElementById('fraseJuego');
 const TIEMPO_TRANSCURRIDO = document.getElementById('tiempoTranscurrido');
@@ -22,6 +21,10 @@ const INPUT_TEXTO = document.getElementById('inputTexto');
 // en el final de nuestro archivo script.js
 document.getElementById('playButton').addEventListener('click', () => {
     // elegimos el texto de ejemplo a mostrar
+    iniciarAnimaciones();
+    iniciarCronometro();
+
+
     const textoIndice = Math.floor(Math.random() * textos.length);
     const texto = textos[textoIndice];
     // separamos el texto en un array de palabras
@@ -46,22 +49,16 @@ document.getElementById('playButton').addEventListener('click', () => {
     INPUT_TEXTO.focus();
     // Establecemos el manejador de eventos
 
-    // Iniciamos el contador de tiempo
-    startTime = new Date().getTime();
 });
+let currentWord;
 
-let tiempoC;
 // al final de nuestro archivo script.js
 document.getElementById('playButton').addEventListener('click', () => {
-    // clearTiempo(tiempoC);
-    animarTexto();
-    iniciarCronometro();
 
 
     INPUT_TEXTO.addEventListener('input', () => {
         // tomamos la palabra actual
-
-        const currentWord = palabras[palabraIndice];
+        currentWord = palabras[palabraIndice];
         // tomamos el valor actual
         const typedValue = INPUT_TEXTO.value;
         if (typedValue === currentWord && palabraIndice === palabras.length - 1) {
@@ -107,7 +104,7 @@ function reestablecerTodo() {
 //              ANIMACIONES DEL TEXTO
 // ************************************************
 //Funcion que anima el texto y modifica ciertos parametros del CSS
-function animarTexto() {
+function iniciarAnimaciones() {
     document.getElementById('playButton').innerHTML = 'Siguiente';
     INPUT_TEXTO.setAttribute('placeholder', '');
     FRASE_JUEGO.style.animation = '';
@@ -115,10 +112,11 @@ function animarTexto() {
     INPUT_TEXTO.focus();
     FRASE_JUEGO.style.animation = 'fraseAnimar 600ms ease';
     FRASE_JUEGO.style.fontSize = '25px';
+    mostrarBotonRetry();
 };
 
 // ************************************************
-//                C R O N O M E T R O              
+//                    CRONOMETRO              
 // ************************************************ 
 // Creamos la variable cronometro
 let cronometro;
@@ -149,8 +147,26 @@ function iniciarCronometro() {
                 seg = 0;
             }
             miliseg++;
-            m.innerHTML = `${min}` + ':';
-            s.innerHTML = `${seg}` + ':';
-            ms.innerHTML = `${miliseg}`;
+            m.innerHTML = min < 10 ? '0' + `${min}` + ':' : `${min}` + ':';
+            s.innerHTML = seg < 10 ? '0' + `${seg}` + ':' : `${seg}` + ':';
+            ms.innerHTML = miliseg < 10 ? '0' + `${miliseg}` : `${miliseg}`;
         }, 10);
 }
+
+// ************************************************
+//               FUNCION REINTENTAR              
+// ************************************************ 
+const BOTON_RETRY = document.getElementById('reintentar');
+function mostrarBotonRetry() {
+    detenerCronometro();
+    setInterval(() => {
+        BOTON_RETRY.style.display = 'block';
+    }, 1000);
+}
+
+BOTON_RETRY.addEventListener('click', () => {
+    palabraIndice = 0;
+    currentWord = palabras[palabraIndice];
+    iniciarCronometro();
+
+});
