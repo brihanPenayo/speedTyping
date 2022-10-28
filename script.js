@@ -16,8 +16,8 @@ let palabraIndice = 0;
 let startTime = Date.now();
 // elementos de la pagina
 const FRASE_JUEGO = document.getElementById('fraseJuego');
-const messageElement = document.getElementById('message');
-let INPUT_TEXTO = document.getElementById('inputTexto');
+const TIEMPO_TRANSCURRIDO = document.getElementById('tiempoTranscurrido');
+const INPUT_TEXTO = document.getElementById('inputTexto');
 
 // en el final de nuestro archivo script.js
 document.getElementById('playButton').addEventListener('click', () => {
@@ -37,7 +37,7 @@ document.getElementById('playButton').addEventListener('click', () => {
     // Resaltamos la primer palabra
     FRASE_JUEGO.childNodes[0].className = 'highlight';
     // Borramos los mensajes previos
-    messageElement.innerText = '';
+    TIEMPO_TRANSCURRIDO.innerText = '';
 
     // Definimos el elemento textbox
     // Vaciamos el elemento textbox
@@ -53,12 +53,8 @@ document.getElementById('playButton').addEventListener('click', () => {
 // al final de nuestro archivo script.js
 
 document.getElementById('playButton').addEventListener('click', () => {
-    document.getElementById('playButton').innerHTML='Siguiente';
-    FRASE_JUEGO.style.animation='';
-    INPUT_TEXTO.disabled = false;
-    INPUT_TEXTO.focus();
-    FRASE_JUEGO.style.animation='fraseAnimar 600ms ease-out';
-    FRASE_JUEGO.style.fontSize='25px';
+    animarTexto();
+    iniciarCronometro();
     INPUT_TEXTO.addEventListener('input', () => {
         // tomamos la palabra actual
         const currentWord = palabras[palabraIndice];
@@ -67,11 +63,7 @@ document.getElementById('playButton').addEventListener('click', () => {
         if (typedValue === currentWord && palabraIndice === palabras.length - 1) {
             // fin de la sentencia
             // Definimos el mensaje de éxito
-            const elapsedTime = new Date().getTime() - startTime;
-            const message = `FELICITACIONES! Finalizaste en ${elapsedTime / 1000} segundos.`;
-            messageElement.innerText = message;
-            INPUT_TEXTO.disabled = true;
-            INPUT_TEXTO.value = '';
+           reestablecerTodo();
         } else if (typedValue.endsWith(' ') && typedValue.trim() === currentWord) {
             // fin de la palabra
             // vaciamos el valor typedValueElement para la siguiente palabra
@@ -94,3 +86,59 @@ document.getElementById('playButton').addEventListener('click', () => {
         }
     });
 });
+
+function reestablecerTodo(){
+    // TIEMPO_TRANSCURRIDO.innerText = message;
+    INPUT_TEXTO.disabled = true;
+    INPUT_TEXTO.value = '';
+    INPUT_TEXTO.setAttribute('placeholder', 'Pon a prueba tu destreza con el teclado!');
+}
+
+//Funcion que anima el texto y modifica ciertos parametros del CSS
+function animarTexto() {
+    document.getElementById('playButton').innerHTML = 'Siguiente';
+    INPUT_TEXTO.setAttribute('placeholder', '');
+    FRASE_JUEGO.style.animation = '';
+    INPUT_TEXTO.disabled = false;
+    INPUT_TEXTO.focus();
+    FRASE_JUEGO.style.animation = 'fraseAnimar 600ms ease-out';
+    FRASE_JUEGO.style.fontSize = '25px';
+};
+
+//Funcion que escribe los segundos transcurridos una vez ejecutado el juego
+function iniciarCronometro() {
+    let minTranscurrido, segTranscurrido, mlsegTranscurrido;
+    milisegundos++;
+
+    if (milisegundos > 99) {
+        segundos++;
+        milisegundos = 0;
+    }
+    if (segundos > 59) {
+        minutos++;
+        segundos = 0;
+    }
+
+    mlsegTranscurrido = milisegundos;
+    segTranscurrido = segundos;
+    minTranscurrido = minutos;
+
+    document.getElementById('tiempoTranscurrido').innerHTML = `${minTranscurrido}:${segTranscurrido}`;
+    document.getElementById('miliSegundos').innerHTML = `.${mlsegTranscurrido}`;
+}
+
+//Funcion que se ejecuta una vez que iniciamos el cronometro
+function empezarContador() {
+    iniciarCronometro();
+    tiempoInicial = setInterval(iniciarCronometro, 10);
+    CRON_CLICK.removeEventListener("click", empezarContador);
+}
+
+//Variables para cronometro
+let h = 0;
+let minutos = 0;
+let segundos = 0;
+let milisegundos = 0;
+let tiempoInicial = 0;
+const CRON_CLICK = document.getElementById("playButton");
+CRON_CLICK.addEventListener("click", empezarContador);

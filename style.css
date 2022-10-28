@@ -109,18 +109,19 @@ body {
     margin: auto;
     margin-top: 3%;
     width: 70%;
-    animation: ;
+    animation: none;
 }
 
 
 @keyframes fraseAnimar {
-    from{ 
-        font-size:  0px;
+    from {
+        font-size: 0px;
     }
-    to{
-        font-size:  25px;
+
+    to {
+        font-size: 25px;
     }
-    }
+}
 
 .keyBoard {
     position: relative;
