@@ -53,6 +53,7 @@ document.getElementById('playButton').addEventListener('click', () => {
 // al final de nuestro archivo script.js
 
 document.getElementById('playButton').addEventListener('click', () => {
+    document.getElementById('playButton').innerHTML='Siguiente';
     FRASE_JUEGO.style.animation='';
     INPUT_TEXTO.disabled = false;
     INPUT_TEXTO.focus();
