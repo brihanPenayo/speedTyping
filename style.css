@@ -108,18 +108,17 @@ body {
     color: #ffffff;
     margin: auto;
     margin-top: 3%;
-    width: 80%;
+    width: 70%;
     animation: ;
-    /* font-size: 25px; */
 }
 
 
 @keyframes fraseAnimar {
     from{ 
-        font-size: 0px;
+        font-size:  0px;
     }
     to{
-        font-size: 25px;
+        font-size:  25px;
     }
     }
 
@@ -154,8 +153,10 @@ body {
 .highlight {
     background-color: #454ADEAA;
     border-radius: 10px;
+    padding: auto;
     padding-left: 2%;
     box-shadow: 0px 0px 20px #454ADEFF;
+    /* animation: fraseAnimar 600ms ease-out; */
     /* animation: fadeIn 4s ease-in;
     animation-delay: 1s; */
 }

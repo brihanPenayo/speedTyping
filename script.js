@@ -1,13 +1,13 @@
 // dentro del script.js
 // todas nuestros textos de ejemplo
 const textos = [
-    'When you have eliminated the impossible, whatever remains, however improbable, must be the truth.',
-    'There is nothing more deceptive than an obvious fact.',
-    'I ought to know by this time that when a fact appears to be opposed to a long train of deductions it invariably proves to be capable of bearing some other interpretation.',
-    'I never make exceptions. An exception disproves the rule.',
-    'What one man can invent another can discover.',
-    'Nothing clears up a case so much as stating it to another person.',
-    'Education never ends, Watson. It is a series of lessons, with the greatest for the last.',
+    'Cuando hayas eliminado lo imposible, lo que quede, por improbable que sea, debe ser la verdad.',
+    'No hay nada más engañoso que un hecho evidente.',
+    'A estas alturas debería saber que cuando un hecho parece oponerse a una larga serie de deducciones, invariablemente demuestra ser capaz de soportar alguna otra interpretación.',
+    'Nunca hago excepciones. Una excepción refuta la regla.',
+    'Lo que un hombre puede inventar, otro puede descubrirlo.',
+    'Nada aclara tanto un caso como explicárselo a otra persona.',
+    'La educación nunca termina, Watson. Es una serie de lecciones, con la mayor para la última.',
 ];
 // almacena la lista de palabras y el índice de la palabra que el jugador está escribiendo actualmente
 let palabras = [];
@@ -56,7 +56,8 @@ document.getElementById('playButton').addEventListener('click', () => {
     FRASE_JUEGO.style.animation='';
     INPUT_TEXTO.disabled = false;
     INPUT_TEXTO.focus();
-    FRASE_JUEGO.style.animation='fraseAnimar 600ms ease';
+    FRASE_JUEGO.style.animation='fraseAnimar 600ms ease-out';
+    FRASE_JUEGO.style.fontSize='25px';
     INPUT_TEXTO.addEventListener('input', () => {
         // tomamos la palabra actual
         const currentWord = palabras[palabraIndice];
