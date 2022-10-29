@@ -174,7 +174,7 @@ BOTON_RETRY.addEventListener('click', () => {
     INPUT_TEXTO.focus();
     iniciarCronometro();
     ampliarBotonRetry();
-    
+
 });
 
 function escribirTextoSeleccionado() {
@@ -188,3 +188,8 @@ function escribirTextoSeleccionado() {
     // Borramos los mensajes previos
     // TIEMPO_TRANSCURRIDO.innerText = '';
 }
+// const AUDIO = new Audio();
+// AUDIO.src= "./res/keyPress.mp3";
+
+// document.getElementsById('fondoTeclado').addEventListener('click',()=>{
+//     AUDIO.play()});

@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Creator: CorelDRAW 2020 (64-Bit) -->
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="21.1667mm" height="18.319mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
-viewBox="0 0 228.97 198.16"
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="26.8008mm" height="26.8008mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 241.61 241.61"
  xmlns:xlink="http://www.w3.org/1999/xlink"
  xmlns:xodm="http://www.corel.com/coreldraw/odm/2003">
  <defs>
   <style type="text/css">
    <![CDATA[
+    .fil1 {fill:none}
     .fil0 {fill:#393738;fill-rule:nonzero}
    ]]>
   </style>
  </defs>
  <g id="Capa_x0020_1">
   <metadata id="CorelCorpID_0Corel-Layer"/>
-  <path class="fil0" d="M198.16 99.08c0,27.36 -11.09,52.13 -29.02,70.06 -17.93,17.93 -42.7,29.02 -70.06,29.02 -27.36,0 -52.13,-11.09 -70.06,-29.02 -17.93,-17.93 -29.02,-42.7 -29.02,-70.06 0,-27.36 11.09,-52.13 29.02,-70.06 17.93,-17.93 42.7,-29.02 70.06,-29.02l0 42.71c-15.57,0 -29.66,6.31 -39.86,16.51 -10.2,10.2 -16.51,24.29 -16.51,39.86 0,15.57 6.31,29.66 16.51,39.86 10.2,10.2 24.29,16.51 39.86,16.51 15.57,0 29.66,-6.31 39.86,-16.51 10.2,-10.2 16.51,-24.29 16.51,-39.86l-30.8 0 52.16 -52.16 52.16 52.16 -30.8 0z"/>
+  <path class="fil0" d="M38.23 119.33c0,22.8 9.24,43.44 24.19,58.39 14.94,14.94 35.59,24.19 58.39,24.19 22.8,0 43.44,-9.24 58.39,-24.19 14.94,-14.94 24.19,-35.59 24.19,-58.39 0,-22.8 -9.24,-43.44 -24.19,-58.39 -14.94,-14.94 -35.59,-24.19 -58.39,-24.19l0 35.59c12.97,0 24.72,5.26 33.22,13.76 8.5,8.5 13.76,20.25 13.76,33.22 0,12.97 -5.26,24.72 -13.76,33.22 -8.5,8.5 -20.25,13.76 -33.22,13.76 -12.97,0 -24.72,-5.26 -33.22,-13.76 -8.5,-8.5 -13.76,-20.25 -13.76,-33.22l25.67 0 -43.47 -43.47 -43.47 43.47 25.67 0z"/>
+  <circle class="fil1" cx="120.8" cy="120.8" r="120.8"/>
  </g>
 </svg>
