@@ -31,14 +31,14 @@ document.getElementById('playButton').addEventListener('click', () => {
     palabras = texto.split(' ');
     // reestablemos el idice de palabras para el seguimiento
     palabraIndice = 0;
-
+    escribirTextoSeleccionado();
     // Actualizamos la interfaz de usuario
     // Creamos una matriz con los elementos span de nuestro HTML para poder definirles una class
-    const spanPalabras = palabras.map(function (palabra) { return `<span>${palabra} </span>` });
+    // const spanPalabras = palabras.map(function (palabra) { return `<span>${palabra} </span>` });
     // Convertimos a string y lo definimos como innerHTML en el texto de ejemplo a mostrar
-    FRASE_JUEGO.innerHTML = spanPalabras.join('');
+    // FRASE_JUEGO.innerHTML = spanPalabras.join('');
     // Resaltamos la primer palabra
-    FRASE_JUEGO.childNodes[0].className = 'highlight';
+    // FRASE_JUEGO.childNodes[0].className = 'highlight';
     // Borramos los mensajes previos
     // TIEMPO_TRANSCURRIDO.innerText = '';
 
@@ -147,9 +147,9 @@ function iniciarCronometro() {
                 seg = 0;
             }
             miliseg++;
-            m.innerHTML = min < 10 ? '0' + `${min}` + ':' : `${min}` + ':';
-            s.innerHTML = seg < 10 ? '0' + `${seg}` + ':' : `${seg}` + ':';
-            ms.innerHTML = miliseg < 10 ? '0' + `${miliseg}` : `${miliseg}`;
+            m.innerHTML = min < 10 ? `0${min}:` : `${min}:`;
+            s.innerHTML = seg < 10 ? `0${seg}:` : `${seg}:`;
+            ms.innerHTML = miliseg < 10 ? `0${miliseg}` : `${miliseg}`;
         }, 10);
 }
 
@@ -167,6 +167,24 @@ function mostrarBotonRetry() {
 BOTON_RETRY.addEventListener('click', () => {
     palabraIndice = 0;
     currentWord = palabras[palabraIndice];
+    INPUT_TEXTO.value = '';
+    INPUT_TEXTO.className = 'classTexto';
+    escribirTextoSeleccionado();
+    INPUT_TEXTO.disabled = false;
+    INPUT_TEXTO.focus();
     iniciarCronometro();
-
+    ampliarBotonRetry();
+    
 });
+
+function escribirTextoSeleccionado() {
+    // Actualizamos la interfaz de usuario
+    // Creamos una matriz con los elementos span de nuestro HTML para poder definirles una class
+    const spanPalabras = palabras.map(function (palabra) { return `<span>${palabra} </span>` });
+    // Convertimos a string y lo definimos como innerHTML en el texto de ejemplo a mostrar
+    FRASE_JUEGO.innerHTML = spanPalabras.join('');
+    // Resaltamos la primer palabra
+    FRASE_JUEGO.childNodes[0].className = 'highlight';
+    // Borramos los mensajes previos
+    // TIEMPO_TRANSCURRIDO.innerText = '';
+}
