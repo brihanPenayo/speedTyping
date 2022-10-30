@@ -93,7 +93,7 @@ body {
     background-color: #ffffff;
     font-family: Keyboard;
     font-size: 600%;
-    color: #343434;
+    color: #000000ff;
     border-radius: 16%;
     transition: transform 200ms ease-out;
     user-select: none;

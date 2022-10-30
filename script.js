@@ -169,6 +169,7 @@ BOTON_RETRY.addEventListener('click', () => {
     currentWord = palabras[palabraIndice];
     INPUT_TEXTO.value = '';
     INPUT_TEXTO.className = 'classTexto';
+    INPUT_TEXTO.setAttribute('placeholder', '');
     escribirTextoSeleccionado();
     INPUT_TEXTO.disabled = false;
     INPUT_TEXTO.focus();
